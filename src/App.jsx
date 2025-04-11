@@ -1,14 +1,14 @@
-import Heading from "./components/Heading"
+import Heading from "./components/Heading";
 
 function App() {
 
-  const NavItem = ({label = 'Label', url = "/", target = '_blank'}) => {
+  const NavItem = ({label = 'Label', url = "/"}) => {
 
     const naveStyle = {display : 'flex', justifyContent: 'center', alignContent: 'center'};
 
     return (
       <div className='nav-item'>
-        <a href={url} className='button button-primary button-lg' style={naveStyle} target={target}>
+        <a href={url} className='button button-primary button-lg' style={naveStyle}>
           {label} 
         </a>
       </div>
