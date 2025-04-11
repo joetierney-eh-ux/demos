@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')).render(
     <ThemeWrapper>
       <BrowserRouter>
         <Routes>
-          <Route path="/demos/" element={<App />} />
+          <Route path="/demos" element={<App />} />
           <Route path="/demos/date-of-birth" element={<DOB_All />} />
           <Route path="/demos/date-range" element={<StartEnd_All />} />
           <Route path="/demos/time-input" element={<Time_1 />} />

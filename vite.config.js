@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: "/demos/",
+  base: "/demos",
   optimizeDeps: {
     include: ['react-datepicker'],
   },
