@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 
+
+# Vite cache directory
+.vite
+
+
 # testing
 /coverage
 
