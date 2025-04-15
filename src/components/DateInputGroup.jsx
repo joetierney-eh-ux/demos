@@ -17,22 +17,21 @@ const DateInputGroup = ({
 	const [error, setError] = useState('');
 	const [monthSelected, setMonthSelected] = useState(false);
 	const [daySelected, setDaySelected] = useState(false);
-	
 
 	const handleMonthChange = (e) => {
 		const month = e.target.value;
 
-		setMonthSelected(!!month);
-
 		if (!/^(0?[1-9]|1[0-2])$/.test(month)) {
 			setError('Month must be a number between 1 and 12.');
 			e.target.value = '';
+			setMonthSelected(false);
 			return;
 		}
 
+		setMonthSelected(true);
 		updateDays(month);
 		setError('');
-		if (month.length === 2) {
+		if (month.length >= 3) {
 			dayRef.current.focus();
 		}
 	};
@@ -116,21 +115,22 @@ const DateInputGroup = ({
 	}, []);
 
 	const handleMonthKeyDown = (e) => {
-		const input = e.key.toLowerCase();
+		const input = e.key;
 		let monthIndex;
 	
 		if (/^(0?[1-9]|1[0-2])$/.test(input)) {
 			monthIndex = input.padStart(2, '0');
 		} else {
-			monthIndex = Object.keys(monthNames).find(key => monthNames[key].toLowerCase().startsWith(input));
+			monthIndex = Object.keys(monthNames).find(key => monthNames[key].startsWith(input));
 		}
 	
 		if (monthIndex) {
 			monthRef.current.value = monthIndex;
+			setMonthSelected(true);
 			updateDays(monthRef.current.value);
 		}
 	};
-
+	
 	const inputGroupInnerStyle = {
 		display: 'flex',
 		flexWrap: 'wrap',
@@ -163,7 +163,7 @@ const DateInputGroup = ({
 							aria-label='Month'
 							className={monthSelected ? '' : 'no-selection'}
 						>
-							<option value="null">Select month&hellip;</option>
+							<option value="">Select month&hellip;</option>
 							<option value="01">January</option>
 							<option value="02">February</option>
 							<option value="03">March</option>
