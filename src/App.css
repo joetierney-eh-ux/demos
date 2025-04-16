@@ -28,7 +28,7 @@
 	--button-bg-color: #f9f9f9;
 	--dropdown-border-color: #ddd;
 	--offLabelColor: #666;
-	--placeholderColor: #777;
+	--placeholderColor: #666;
 }
 
 .app-wrapper.dark {
@@ -48,7 +48,7 @@
 	--button-bg-color: #444;
 	--dropdown-border-color: #666;
 	--offLabelColor: #aaa;
-	--placeholderColor: #777;
+	--placeholderColor: #999;
 }
 
 /* globals */
